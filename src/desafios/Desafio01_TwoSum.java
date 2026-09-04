@@ -1,11 +1,7 @@
-package desafios; // Indica a pasta onde o arquivo está
+package desafios;
 
-import java.util.HashMap;
-import java.util.Map;
+public class Desafio01_TwoSum {
 
-public class Desafio01_TwoSum { // O nome da classe deve ser igual ao do arquivo
-
-    // Cada desafio terá seu próprio método main para você testar isoladamente
     public static void main(String[] args) {
         Desafio01_TwoSum solucao = new Desafio01_TwoSum();
 
@@ -22,16 +18,14 @@ public class Desafio01_TwoSum { // O nome da classe deve ser igual ao do arquivo
     }
 
     public int[] twoSum(int[] numbers, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-
         for (int i = 0; i < numbers.length; i++) {
-            int complement = target - numbers[i];
 
-            if (map.containsKey(complement)) {
-                return new int[] { map.get(complement), i };
+            for (int j = i + 1; j < numbers.length; j++) {
+
+                if (numbers[i] + numbers[j] == target) {
+                    return new int[] { i, j };
+                }
             }
-
-            map.put(numbers[i], i);
         }
 
         return new int[]{};
